@@ -1,0 +1,12 @@
+{
+  "name": "fox-wif-hat",
+  "version": "1.0.0",
+  "description": "Meme coin and merkle drop",
+  "main": "index.js",
+  "repository": "https://github.com/shapeshift/fox-wif-hat",
+  "author": "0xean <0xean.eth@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "hardhat": "^2.22.17"
+  }
+}
