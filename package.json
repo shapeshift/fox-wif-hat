@@ -4,12 +4,13 @@
   "description": "Meme coin and merkle drop",
   "main": "index.js",
   "repository": "https://github.com/shapeshift/fox-wif-hat",
-  "author": "0xean <0xean.eth@gmail.com>",
+  "author": "ShapeShift DAO",
   "license": "MIT",
   "devDependencies": {
     "hardhat": "^2.22.17"
   },
   "dependencies": {
+    "@openzeppelin/contracts": "^5.2.0",
     "@openzeppelin/contracts-upgradeable": "^5.2.0",
     "@openzeppelin/merkle-tree": "^1.0.7"
   }
