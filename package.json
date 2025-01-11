@@ -8,5 +8,9 @@
   "license": "MIT",
   "devDependencies": {
     "hardhat": "^2.22.17"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts-upgradeable": "^5.2.0",
+    "@openzeppelin/merkle-tree": "^1.0.7"
   }
 }
