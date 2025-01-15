@@ -22,4 +22,8 @@ const json = csv_data.split('\n').map((line) => {
 })
 
 if (typeof json !== 'object') throw new Error('Invalid JSON')
-console.log(JSON.stringify(parseBalanceMap(json as any)))
+
+const merkleInfo = parseBalanceMap(json)
+
+// output the merkle info to file so we can pin to IPFS
+fs.writeFileSync('merkle-tree.json', JSON.stringify(merkleInfo, null, 2))
