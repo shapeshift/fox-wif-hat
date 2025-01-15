@@ -38,6 +38,10 @@ async function main() {
   await ticToken.renounceRole(adminRole, accounts[0].address);
   console.log(`Renouncing Minter Role`);
   await ticToken.renounceRole(minterRole, accounts[0].address);
+
+  // transfer ownership of MerkleDistributor to DAO
+  console.log(`Transferring MerkleDistributor Ownership to DAO: ${DAO_MSIG_ADDRESS}`);
+  await merkleDistributor.transferOwnership(DAO_MSIG_ADDRESS);
 }
 
 main()
