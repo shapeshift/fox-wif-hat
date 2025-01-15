@@ -1,2 +1,16 @@
 # FOX wif hat
 Token and associated claiming framework
+
+
+
+1. generate the merkle tree with desired inputs
+```bash
+yarn generate-merkle-root -i ./scripts/input_example.csv
+```
+2. pin to IPFS (and add hash to web ticket fo claim implementation in the frontend)
+3. deploy the MerkleDistributor with the correct merkle root (note: scripts/deploy.js should handle the below steps, just make sure variables are set correctly)
+4. Deploy FOX WIF Hat 
+5. Mint token to the MerkleDistributor
+6. Grant roles to the DAO multisig
+7. revoke roles from the deployer
+8. Verify all is well and verify contracts on block explorer

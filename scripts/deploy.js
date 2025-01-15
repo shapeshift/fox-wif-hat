@@ -1,6 +1,6 @@
 const { ethers } = require('hardhat')
 
-const DAO_MSIG_ADDRESS = ""
+const DAO_MSIG_ADDRESS = "0x9c9aA90363630d4ab1D9dbF416cc3BBC8d3Ed502" // note this on BASE!
 const MERKLE_ROOT = ""
 const MINT_AMOUNT = ""
 
