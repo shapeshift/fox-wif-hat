@@ -24,7 +24,7 @@ contract FoxWifHat is AccessControl, ERC20("FOX Wif Hat", "FWH") {
 
     /// @dev A modifier which checks that the caller has the minter role.
     modifier onlyMinter() {
-        require(hasRole(MINTER_ROLE, msg.sender), "TicToken: only minter");
+        require(hasRole(MINTER_ROLE, msg.sender), "FWH: only minter");
         _;
     }
 
