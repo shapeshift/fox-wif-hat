@@ -15,9 +15,6 @@ interface MerkleDistributorInfo {
       index: number
       amount: string
       proof: string[]
-      flags?: {
-        [flag: string]: boolean
-      }
     }
   }
 }
