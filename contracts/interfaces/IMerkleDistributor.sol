@@ -14,4 +14,7 @@ interface IMerkleDistributor {
 
     // This event is triggered whenever a call to #claim succeeds.
     event Claimed(uint256 index, address account, uint256 amount);
+
+    // event fires when owner removes assets from the contract
+    event Withdrawn(uint256 amount);
 }

@@ -18,7 +18,7 @@ const csv_data = fs.readFileSync(program.input, { encoding: 'utf8' })
 const json = csv_data.split('\n').map((line) => {
   const [address, balance] = line.split(',')
   // convert balance to string
-  return { address, balance: balance.toString() }
+  return { address, balance }
 })
 
 if (typeof json !== 'object') throw new Error('Invalid JSON')

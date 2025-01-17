@@ -65,8 +65,8 @@ for (const contract of ['MerkleDistributor']) {
         let tree: BalanceTree
         beforeEach('deploy', async () => {
           tree = new BalanceTree([
-            { account: wallet0.address, amount: BigNumber.from(100) },
-            { account: wallet1.address, amount: BigNumber.from(101) },
+            { address: wallet0.address, amount: BigNumber.from(100) },
+            { address: wallet1.address, amount: BigNumber.from(101) },
           ])
           distributor = await deployContract(distributorFactory, token.address, tree.getHexRoot())
           await token.setBalance(distributor.address, 201)
@@ -191,7 +191,7 @@ for (const contract of ['MerkleDistributor']) {
         beforeEach('deploy', async () => {
           tree = new BalanceTree(
             wallets.map((wallet, ix) => {
-              return { account: wallet.address, amount: BigNumber.from(ix + 1) }
+              return { address: wallet.address, amount: BigNumber.from(ix + 1) }
             })
           )
           distributor = await deployContract(distributorFactory, token.address, tree.getHexRoot())
@@ -222,9 +222,9 @@ for (const contract of ['MerkleDistributor']) {
         const NUM_SAMPLES = 25
 
         beforeEach('deploy', async () => {
-          const elements: { account: string; amount: BigNumber }[] = []
+          const elements: { address: string; amount: BigNumber }[] = []
           for (let i = 0; i < NUM_LEAVES; i++) {
-            const node = { account: wallet0.address, amount: BigNumber.from(100) }
+            const node = { address: wallet0.address, amount: BigNumber.from(100) }
             elements.push(node)
           }
           tree = new BalanceTree(elements)
@@ -266,11 +266,13 @@ for (const contract of ['MerkleDistributor']) {
           }
         }
         beforeEach('deploy', async () => {
-          const { claims: innerClaims, merkleRoot, tokenTotal } = parseBalanceMap({
-            [wallet0.address]: 200,
-            [wallet1.address]: 300,
-            [wallets[2].address]: 250,
-          })
+          const { claims: innerClaims, merkleRoot, tokenTotal } = parseBalanceMap(
+            [ 
+              { address: wallet0.address, balance:  "200" },
+              { address: wallet1.address, balance:  "300" },
+              { address: wallets[2].address, balance:  "250" }
+            ]
+          )
           expect(tokenTotal).to.eq('0x02ee') // 750
           claims = innerClaims
           distributor = await deployContract(distributorFactory, token.address, merkleRoot)

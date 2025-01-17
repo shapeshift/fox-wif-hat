@@ -4,7 +4,6 @@ import { BigNumber, utils } from 'ethers'
 export default class BalanceTree {
   private readonly tree: MerkleTree
   constructor(balances: { address: string; amount: BigNumber }[]) {
-    console.log('tree balances:', balances)
     this.tree = new MerkleTree(
       balances.map(({ address, amount }, index) => {
         return BalanceTree.toNode(index, address, amount)

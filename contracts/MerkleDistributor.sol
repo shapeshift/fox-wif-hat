@@ -56,6 +56,8 @@ contract MerkleDistributor is IMerkleDistributor, Ownable {
     }
 
     function withdraw() external onlyOwner {
-        IERC20(token).safeTransfer(msg.sender, IERC20(token).balanceOf(address(this)));
+        uint256 tokenBalance = IERC20(token).balanceOf(address(this));
+        IERC20(token).safeTransfer(msg.sender, tokenBalance);
+        emit Withdrawn(tokenBalance);
     }
 }
