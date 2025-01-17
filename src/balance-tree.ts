@@ -29,9 +29,6 @@ export default class BalanceTree {
 
   // keccak256(abi.encode(index, address, amount))
   public static toNode(index: number | BigNumber, address: string, amount: BigNumber): Buffer {
-    console.log('index:', index)
-    console.log('address:', address)
-    console.log('amount:', amount)
     return Buffer.from(
       utils.solidityKeccak256(['uint256', 'address', 'uint256'], [index, address, amount]).substr(2),
       'hex'

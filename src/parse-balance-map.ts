@@ -53,10 +53,7 @@ export function parseBalanceMap(balances: AddressBalance[]): MerkleDistributorIn
   const claims = sortedAddresses.reduce<{
     [address: string]: { amount: string; index: number; proof: string[]}
   }>((memo, address, index) => {
-    console.log('address:', address)
-    console.log('index:', index)
     const amount = dataByAddress[address]
-    console.log('amount:', amount)
     memo[address] = {
       index,
       amount: amount.toHexString(),
