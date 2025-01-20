@@ -6,7 +6,7 @@ const MINT_AMOUNT = ""
 
 
 async function main() {
-  accounts = await ethers.getSigners();
+  const accounts = await ethers.getSigners();
 
   // deploy Fox Wif Hat
   const FoxWifHat = await ethers.getContractFactory('FoxWifHat')
@@ -18,10 +18,10 @@ async function main() {
   const minterRole = await foxWifHat.MINTER_ROLE();
   
   console.log(`Granting Admin to DAO: ${DAO_MSIG_ADDRESS}`);
-  await ticToken.grantRole(adminRole, DAO_MSIG_ADDRESS);
+  await foxWifHat.grantRole(adminRole, DAO_MSIG_ADDRESS);
   
   console.log(`Granting Minter to DAO: ${DAO_MSIG_ADDRESS}`);
-  await ticToken.grantRole(minterRole, DAO_MSIG_ADDRESS);
+  await foxWifHat.grantRole(minterRole, DAO_MSIG_ADDRESS);
 
   // deploy MerkleDistributor
   const MerkleDistributor = await ethers.getContractFactory('MerkleDistributor')
@@ -35,9 +35,9 @@ async function main() {
 
   // remove our admin and minting permissions
   console.log(`Renouncing Admin Role`);
-  await ticToken.renounceRole(adminRole, accounts[0].address);
+  await foxWifHat.renounceRole(adminRole, accounts[0].address);
   console.log(`Renouncing Minter Role`);
-  await ticToken.renounceRole(minterRole, accounts[0].address);
+  await foxWifHat.renounceRole(minterRole, accounts[0].address);
 
   // transfer ownership of MerkleDistributor to DAO
   console.log(`Transferring MerkleDistributor Ownership to DAO: ${DAO_MSIG_ADDRESS}`);
