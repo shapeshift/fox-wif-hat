@@ -6,6 +6,13 @@ const MINT_AMOUNT = ""
 
 
 async function main() {
+
+  if (MERKLE_ROOT === "" || MINT_AMOUNT === "") {
+    // exit process early
+    console.error("MERKLE_ROOT and MINT_AMOUNT must be set")
+    return
+  }
+
   const accounts = await ethers.getSigners();
 
   // deploy Fox Wif Hat
