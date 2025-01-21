@@ -1,18 +1,13 @@
 const { ethers } = require('hardhat')
 
 const DAO_MSIG_ADDRESS = "0x9c9aA90363630d4ab1D9dbF416cc3BBC8d3Ed502" // note this on BASE!
-const MERKLE_ROOT = ""
-const MINT_AMOUNT = ""
-
+const MERKLE_ROOT = "0x65bebb8c131062e82459c9a0460515f38fe933bb743b34b5e5a2cb6f5eaef3a4"
+const MINT_AMOUNT = "317278000000000000000000000"
+const MARKETING_WS_ADDRESS = "0x43ef98EA6E11E49401376EfdaBd36fe919C24E3d"
+const MARKETING_WS_AMOUNT = "40000000000000000000000000"
 
 async function main() {
-
-  if (MERKLE_ROOT === "" || MINT_AMOUNT === "") {
-    // exit process early
-    console.error("MERKLE_ROOT and MINT_AMOUNT must be set")
-    return
-  }
-
+  
   const accounts = await ethers.getSigners();
 
   // deploy Fox Wif Hat
@@ -37,8 +32,12 @@ async function main() {
   
   console.log(`MerkleDistributor deployed at ${merkleDistributor.address}`)
 
+  console.log("Minting FOX wif hat to Merkle Distributor and Marketing Workstream");
   // mint FOX wif hat to merkle distributor
   await foxWifHat.mint(merkleDistributor.address, MINT_AMOUNT)
+
+  // mint FOX wif hat to marketing workstream
+  await foxWifHat.mint(MARKETING_WS_ADDRESS, MARKETING_WS_AMOUNT)
 
   // remove our admin and minting permissions
   console.log(`Renouncing Admin Role`);

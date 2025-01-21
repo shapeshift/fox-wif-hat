@@ -3,6 +3,13 @@ Token and associated claiming framework
 
 
 
+## BASE deployment
+
+- [FOX WIF Hat Token](https://basescan.org/token/0x0d0b60d12f0e5c16beb06afad764d0c3a0183cca)
+- [Merkle Distributor](https://basescan.org/address/0xacf1823f3229ad0f6f9e3010d09ed6a6bfeffba2)
+- [Merkle Tree](https://ipfs.io/ipfs/bafybeih6ij5lgdn55pva5ljx2ucjex7umx56glzurbx3mb5sxlik26ee4a)
+
+## Deployment notes
 1. generate the merkle tree with desired inputs
 ```bash
 yarn generate-merkle-root -i ./scripts/input_example.csv
