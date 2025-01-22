@@ -5,9 +5,9 @@ Token and associated claiming framework
 
 ## BASE deployment
 
-- [FOX WIF Hat Token](https://basescan.org/token/0x0d0b60d12f0e5c16beb06afad764d0c3a0183cca)
-- [Merkle Distributor](https://basescan.org/address/0xacf1823f3229ad0f6f9e3010d09ed6a6bfeffba2)
-- [Merkle Tree](https://ipfs.io/ipfs/bafybeih6ij5lgdn55pva5ljx2ucjex7umx56glzurbx3mb5sxlik26ee4a)
+- [FOX WIF Hat Token](https://basescan.org/token/0xd14acd73ade7f3c652f05365115f015e905a6bf4)
+- [Merkle Distributor](https://basescan.org/address/0xaf770854d4ea7103da104e7df4e6e13c4639c570)
+- [Merkle Tree](https://ipfs.io/ipfs/bafybeifaysj3qdmwrjlkc7pebbutjj7qdtyfofxxqdgyar2xzyrqy3d2ui)
 
 ## Deployment notes
 1. generate the merkle tree with desired inputs
