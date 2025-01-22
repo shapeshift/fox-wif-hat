@@ -273,7 +273,7 @@ for (const contract of ['MerkleDistributor']) {
               { address: wallets[2].address, balance:  "250" }
             ]
           )
-          expect(tokenTotal).to.eq('0x02ee') // 750
+          expect(tokenTotal).to.eq('0x28a857425466f80000') // 750 with 18 decimals
           claims = innerClaims
           distributor = await deployContract(distributorFactory, token.address, merkleRoot)
           await token.setBalance(distributor.address, tokenTotal)
@@ -283,24 +283,26 @@ for (const contract of ['MerkleDistributor']) {
           expect(claims).to.deep.eq({
             [wallet0.address]: {
               index: 2,
-              amount: '0xc8',
+              amount: '0x0ad78ebc5ac6200000',
               proof: [
-                '0x0782528e118c4350a2465fbeabec5e72fff06991a29f21c08d37a0d275e38ddd',
-                '0xf3c5acb53398e1d11dcaa74e37acc33d228f5da944fbdea9a918684074a21cdb',
+                '0x24cb45e98e17ea69218d9d0422c9cbfae63ae810b442e3e8e34550a14af5b696',
+                '0xb831028c247f5710bc73447229e2fb749dc2f3023c42b54bb6bf34495cb6f42d',
               ],
             },
             [wallet1.address]: {
               index: 1,
-              amount: '0x012c',
+              amount: '0x1043561a8829300000',
               proof: [
-                '0xc86fd316fa3e7b83c2665b5ccb63771e78abcc0429e0105c91dde37cb9b857a4',
-                '0xf3c5acb53398e1d11dcaa74e37acc33d228f5da944fbdea9a918684074a21cdb',
+                '0xac4b229fd524883991978d7370e0fb20044dfd87f336ddb567b3d6e7c000e708',
               ],
             },
             [wallets[2].address]: {
               index: 0,
-              amount: '0xfa',
-              proof: ['0x0c9bcaca2a1013557ef7f348b514ab8a8cd6c7051b69e46b1681a2aff22f4a88'],
+              amount: '0x0d8d726b7177a80000',
+              proof: [
+                '0x279fba6d03a94ef5bbe224b93ee0eb1b2a9fabba05bd70d4f52857f315193ce5',
+                '0xb831028c247f5710bc73447229e2fb749dc2f3023c42b54bb6bf34495cb6f42d',
+              ],
             },
           })
         })

@@ -2,6 +2,7 @@ import { BigNumber, utils } from 'ethers'
 import BalanceTree from './balance-tree'
 
 const { isAddress, getAddress } = utils
+const DECIMALS = 18
 
 // This is the blob that gets distributed and pinned to IPFS.
 // It is completely sufficient for recreating the entire merkle tree.
@@ -41,7 +42,7 @@ export function parseBalanceMap(balances: AddressBalance[]): MerkleDistributorIn
       throw new Error(`Duplicate address: ${addressBalance.address}`)
     }
   
-    memo[parsedAddress] = BigNumber.from(addressBalance.balance)
+    memo[parsedAddress] = BigNumber.from(addressBalance.balance).mul(BigNumber.from(10).pow(DECIMALS))
     return memo
   }, {})
   const sortedAddresses = Object.keys(dataByAddress).sort()
